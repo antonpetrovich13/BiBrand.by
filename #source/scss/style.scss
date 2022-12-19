@@ -2,8 +2,8 @@
 @import "nullstyle.scss";
 
 // <АДАПТИВНОЕ СВОЙСТВО> =============================================================================
-$maxWidth: 1920;
-$maxWidthContainer: 1170;
+$maxWidth: 1440;
+$maxWidthContainer: 1270;
 
 @mixin adaptiv-value ($property, $startSize, $minSize, $type) {
 	$addSize: $startSize - $minSize;
@@ -35,7 +35,6 @@ $maxWidthContainer: 1170;
 // <ПЕРЕВОДЫ МЕЖДУ ЕДИНИЦАМИ ИЗМЕРЕНИЯ>=================================================
 // В %
 
-
 @function prc($pxOne, $pxTwo) {
 	$result: ($pxOne/$pxTwo) * 100%;
 	@return $result;
@@ -54,14 +53,29 @@ $maxWidthContainer: 1170;
 }
 
 body {
-	// font-size: 14px;
+	font-size: rem(16);
 	color: #000;
+	overflow: hidden;
 
 	&._lock {
 		overflow: hidden;
 	}
 
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// <_IBG> ====================================================================================
+._ibg {
+	position: relative;
+
+	& img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
 }
 
 // <ПОДКЛЮЧЕНИЕ ШРИФТОВ> ====================================================================================
@@ -77,6 +91,12 @@ body {
 
 .content {
 	flex: 1 1 auto;
+}
+
+.container {
+	max-width: 1270/1440 * 100%;
+	padding: 0 rem(15);
+	margin: 0 auto;
 }
 
 // <ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ> ===============================================================================
